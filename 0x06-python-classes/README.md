@@ -1,2 +1,1 @@
-Object Oriented Programming with python,
-this project deals with classes
+Python Classes (oop) project
