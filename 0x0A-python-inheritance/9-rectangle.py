@@ -1,24 +1,24 @@
-#!/usr.bin.python3
-"""based on 7-base_geometry"""
-class BaseGeometry:
-    def area(self):
-        raise Exception("area() is not implemented")
+#!/usr/bin/python3
+"""
+more class base
+"""
 
-    def integer_validator(self, name, value):
-        if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
+    """ definition of a Rectangle """
     def __init__(self, width, height):
+        """ constructor and width, height"""
         self.__width = width
         self.__height = height
-        self.integer_validator("width", self.__width)
-        self.integer_validator("height", self.__height)
+        BaseGeometry.integer_validator(self, "width", self.__width)
+        BaseGeometry.integer_validator(self, "height", self.__height)
 
     def area(self):
         return self.__width * self.__height
 
     def __str__(self):
-        return f"[Rectangle] {self.__width}/{self.__height}"
+        """ print """
+        return ("[Rectangle] " + str(self.__width) + "/" + str(self.__height))
